@@ -21,7 +21,7 @@ var mWare = {
 app.use(mWare.logger);
 
 app.get('/about',mWare.reqAuth, function(req, res){
-	res.send('About us!');
+	res.send('About us!!');
 })
 
 //__dirname variable is nodejs provided variable that exposes the current directory
