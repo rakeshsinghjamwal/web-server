@@ -1,16 +1,8 @@
 var express = require('express');
 //instance of app 
 var app = express();
-var mWare = {
-	reqAuth: function(req, res, next){
-		console.log('Private route hit!');
-		next();
-	}, 
-	logger:function (req, res, next ){
-		console.log('Request: ' + new Date().toString() + ' '+ req.method + ' ' + req.originalUrl);
-		next();
-	}
-}
+var mWare = require('./middleware.js');
+
 //Http Request to GET
 //if I comment out the get with root /, it will default to index.html if no other file is 
 //specified.
@@ -34,6 +26,6 @@ app.use(express.static(__dirname + '/public'));
 //tells the browser at which port to listen the application 
 var port = 2999;
 app.listen(port, function(){
-	console.log('Express server started at:' + port)
+	console.log('Express server started at:' + port);
 });
 
