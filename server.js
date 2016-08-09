@@ -1,6 +1,7 @@
 var express = require('express');
 //instance of app 
 var app = express();
+var port = process.env.PORT || 2999;
 var mWare = require('./middleware.js');
 
 //Http Request to GET
@@ -24,7 +25,7 @@ app.get('/about',mWare.reqAuth, function(req, res){
 app.use(express.static(__dirname + '/public'));
 
 //tells the browser at which port to listen the application 
-var port = 2999;
+
 app.listen(port, function(){
 	console.log('Express server started at:' + port);
 });
